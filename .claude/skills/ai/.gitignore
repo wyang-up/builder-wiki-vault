@@ -1,4 +1,6 @@
 scripts/node_modules/
+.tmp-*
+scripts/.tmp-*
 .env
 *.log
 .DS_Store
