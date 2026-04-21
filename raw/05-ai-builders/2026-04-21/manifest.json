@@ -1,0 +1,19 @@
+{
+  "source": "ai-builders",
+  "batchDate": "2026-04-21",
+  "generatedAt": "2026-04-21T05:22:51.895Z",
+  "feedGeneratedAt": "2026-04-20T08:03:08.870Z",
+  "language": "zh",
+  "primaryFile": "digest-zh.md",
+  "evidenceFiles": [
+    "feed-x.json",
+    "feed-podcasts.json",
+    "feed-blogs.json"
+  ],
+  "stats": {
+    "xBuilders": 9,
+    "totalTweets": 18,
+    "podcastEpisodes": 1,
+    "blogPosts": 0
+  }
+}

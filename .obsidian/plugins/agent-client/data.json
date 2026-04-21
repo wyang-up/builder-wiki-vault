@@ -1,0 +1,130 @@
+{
+  "claude": {
+    "id": "claude-code-acp",
+    "displayName": "Claude Code",
+    "apiKey": "",
+    "command": "claude-agent-acp",
+    "args": [],
+    "env": []
+  },
+  "codex": {
+    "id": "codex-acp",
+    "displayName": "Codex",
+    "apiKey": "",
+    "command": "codex-acp",
+    "args": [],
+    "env": []
+  },
+  "gemini": {
+    "id": "gemini-cli",
+    "displayName": "Gemini CLI",
+    "apiKey": "",
+    "command": "gemini",
+    "args": [
+      "--experimental-acp"
+    ],
+    "env": []
+  },
+  "customAgents": [
+    {
+      "id": "opencode",
+      "displayName": "OpenCode",
+      "command": "opencode",
+      "args": [
+        "acp"
+      ],
+      "env": []
+    }
+  ],
+  "defaultAgentId": "opencode",
+  "autoAllowPermissions": false,
+  "autoMentionActiveNote": true,
+  "enableSystemNotifications": true,
+  "debugMode": false,
+  "nodePath": "",
+  "exportSettings": {
+    "defaultFolder": "Agent Client",
+    "filenameTemplate": "agent_client_{date}_{time}",
+    "autoExportOnNewChat": false,
+    "autoExportOnCloseChat": false,
+    "openFileAfterExport": true,
+    "includeImages": true,
+    "imageLocation": "obsidian",
+    "imageCustomFolder": "Agent Client",
+    "frontmatterTag": "agent-client"
+  },
+  "windowsWslMode": true,
+  "windowsWslDistribution": "Ubuntu",
+  "sendMessageShortcut": "enter",
+  "chatViewLocation": "right-tab",
+  "displaySettings": {
+    "autoCollapseDiffs": false,
+    "diffCollapseThreshold": 10,
+    "maxNoteLength": 10000,
+    "maxSelectionLength": 10000,
+    "showEmojis": true,
+    "fontSize": null
+  },
+  "savedSessions": [
+    {
+      "sessionId": "ses_250974de8ffeu2nzmeRhvLovUm",
+      "agentId": "opencode",
+      "cwd": "/mnt/f/Obsidian/knowledge_repository/builder-wiki-vault",
+      "title": "帮我提交上git",
+      "createdAt": "2026-04-21T09:40:44.758Z",
+      "updatedAt": "2026-04-21T09:40:44.758Z"
+    },
+    {
+      "sessionId": "ses_2517a7ad4ffetwSotz2LveVZDV",
+      "agentId": "opencode",
+      "cwd": "/mnt/f/Obsidian/knowledge_repository/Builderwiki Vault",
+      "title": "/ingest",
+      "createdAt": "2026-04-21T05:31:58.114Z",
+      "updatedAt": "2026-04-21T05:31:58.114Z"
+    },
+    {
+      "sessionId": "ses_25188cfd9ffexr3yvxJvn05UfV",
+      "agentId": "opencode",
+      "cwd": "/mnt/f/Obsidian/knowledge_repository/Builderwiki Vault",
+      "title": "/ai",
+      "createdAt": "2026-04-21T05:15:57.305Z",
+      "updatedAt": "2026-04-21T05:15:57.305Z"
+    },
+    {
+      "sessionId": "ses_25215344affeNJ0QcBSD5UPhtc",
+      "agentId": "opencode",
+      "cwd": "/mnt/f/Obsidian/knowledge_repository/Builderwiki Vault",
+      "title": "我可以将.claude下面的follow-builders与我当前的llm-wiki知识库相结合，f...",
+      "createdAt": "2026-04-21T02:50:55.962Z",
+      "updatedAt": "2026-04-21T02:50:55.962Z"
+    },
+    {
+      "sessionId": "ses_2527bbf2cffexaFfQu1SLfsQ6G",
+      "agentId": "opencode",
+      "cwd": "/mnt/f/Obsidian/knowledge_repository/karpathy-llm-wiki-vault",
+      "title": "1",
+      "createdAt": "2026-04-21T00:50:36.512Z",
+      "updatedAt": "2026-04-21T00:50:36.514Z"
+    },
+    {
+      "sessionId": "ses_252940dbaffepyC53hmBo47afe",
+      "agentId": "opencode",
+      "cwd": "/mnt/f/Obsidian/knowledge_repository/karpathy-llm-wiki-vault",
+      "title": "1",
+      "createdAt": "2026-04-21T00:24:04.020Z",
+      "updatedAt": "2026-04-21T00:24:04.021Z"
+    }
+  ],
+  "lastUsedModels": {
+    "opencode": "yuchat/gpt-5.4"
+  },
+  "lastUsedModes": {},
+  "enableFloatingChat": false,
+  "floatingButtonImage": "",
+  "floatingWindowSize": {
+    "width": 400,
+    "height": 500
+  },
+  "floatingWindowPosition": null,
+  "floatingButtonPosition": null
+}
