@@ -1,0 +1,15 @@
+{
+  "name": "ai-builders-scripts",
+  "version": "1.0.0",
+  "description": "Scripts for AI Builders skill — feed preparation, batch persistence, delivery",
+  "type": "module",
+  "scripts": {
+    "generate-feed": "node generate-feed.js",
+    "prepare-digest": "node prepare-digest.js",
+    "save-batch": "node save-batch.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.0",
+    "proper-lockfile": "^4.1.0"
+  }
+}
