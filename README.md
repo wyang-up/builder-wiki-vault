@@ -7,9 +7,9 @@
 - [follow-builders](https://github.com/zarazhangrui/follow-builders) 的信息流捕获能力：把高信号来源组织成可持续消费的资料流
 - [karpathy-llm-wiki-vault](https://github.com/jason-effi-lab/karpathy-llm-wiki-vault) 的知识编译能力：把原始资料沉淀为结构化、可链接、可复用的 wiki
 
-在这两者之上，Builderwiki Vault 补上了更适合长期维护的本地工作流：资料采集、知识编译、增量更新、知识查询和全局巡检。
+在这两者之上，Builder Wiki Vault 补上了更适合长期维护的本地工作流，包括资料采集、知识编译、增量更新、知识查询和全局巡检。
 
-这个 vault 不只服务于单一资料类型。它为文章、论文、转录稿、会议纪要，以及按批次组织的专题资料预留了统一的编译入口，用同一套 wiki schema 把不同类型的信息沉淀到一个知识网络里。
+这个 vault 不只服务于单一资料类型。文章、论文、转录稿、会议纪要，以及按批次组织的专题资料，都可以通过同一套 wiki schema 被整理进一个可持续演化的知识网络。
 
 ## 什么是 AI builders
 
@@ -22,7 +22,7 @@
 ## 目录结构
 
 ```text
-🏛️ Builderwiki Vault
+🏛️ Builder Wiki Vault
 ├── 🖼️ assets/                   ← 媒体资源层：图片、PDF、附件等，供 Obsidian 引用
 │
 ├── 📥 raw/                      ← 原始资料层：事实入口，只读，不在这里表达处理状态
@@ -76,10 +76,10 @@
 3. 再把这些原始资料编译成来源页、实体页、概念页和综合页
 4. 让这些内容最终变成一个可更新、可查询、可持续维护的本地知识库
 
-所以它不是“又一个资料收集箱”，也不是“又一个 Obsidian 模板”，而是把两件事接起来：
+所以它不是“又一个资料收集箱”，也不是“又一个 Obsidian 模板”，而是把两件事真正接起来：
 
-- 前端是可持续进入 vault 的资料入口
-- 后端是面向长期维护的知识编译器
+- 前面是可持续进入 vault 的资料入口
+- 后面是面向长期维护的知识编译流程
 
 ## 核心功能
 
@@ -108,7 +108,9 @@
 
 ### 3. 支持增量更新，而不是重复导入
 
-这个项目不是一次性 ingest。当前工作流已经支持：
+这个项目不是一次性 ingest，而是支持增量更新。它的目标不是重复导入同一份资料，而是在不破坏既有知识结构的前提下持续演化 wiki。
+
+当前工作流已经支持：
 
 - 扫描 `wiki/sources/` frontmatter 的 `sources` 字段，判断原始资料是否已处理
 - `/ingest` 默认跳过已处理文件
@@ -195,7 +197,7 @@
 3. 运行 `/query <问题>` 在知识库上提问
 4. 需要时运行 `/lint` 做全局巡检
 
-如果你要收集网页文章、博客或在线文档，也可以先用 [Obsidian Web Clipper](https://obsidian.md/clipper) 把内容裁剪到本地，再放入 `raw/01-articles/` 交给 `/ingest`。
+如果你要收集网页文章、博客或在线文档，也可以先用 [Obsidian Web Clipper](https://obsidian.md/clipper) 将内容直接裁剪为 Markdown 文件并保存到 `raw/01-articles/`，再交给 `/ingest` 处理。
 
 ## 核心约束
 
@@ -214,7 +216,7 @@
 - ingest 前基于 `wiki/sources/` 建立已处理映射
 - 支持 `/ingest status` 的只读状态观察
 - 支持专题来源页 update
-- 支持来源页五段式结构：
+- 支持来源页五段式模板结构：
   - `核心摘要`
   - `关键论点`
   - `证据来源`
@@ -312,4 +314,4 @@
 
 ## 一句话总结
 
-如果说 `follow-builders` 更像高信号资料入口，`karpathy-llm-wiki-vault` 更像知识容器，那么 Builderwiki Vault 想做的是把两者接起来，形成一条从原始资料到长期知识资产的完整流水线。
+如果说 `follow-builders` 更像高信号资料入口，`karpathy-llm-wiki-vault` 更像知识容器，那么 Builder Wiki Vault 想做的是把两者接起来，形成一条从原始资料到长期知识资产的可持续流水线。
