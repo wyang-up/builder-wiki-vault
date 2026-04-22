@@ -7,6 +7,7 @@
 ## Sources
 - [[ai-builders-2026-04-21]] — 总结 2026-04-21 这一批 AI builder 对 agent 工作流、长期能力演进与安全边界的集中讨论。
 - [[摘要-garrytan-gstack-claude-code-setup]] — 系统说明 Garry Tan 如何把 gstack 组织成一套面向 Claude Code 的虚拟工程团队工作流。
+- [[摘要-llm-wiki]] — 解释 LLM Wiki 如何把原始资料持续编译为持久知识系统的模式说明。
 
 ## Entities
 - [[ClaudeCode]] — 被 gstack 组织成多角色工作流宿主的 AI 编码环境。
