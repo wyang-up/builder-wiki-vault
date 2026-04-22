@@ -30,7 +30,7 @@
 │   ├── 🎓 02-papers/            ← 论文、研究报告、PDF 文献
 │   ├── 🎙️ 03-transcripts/       ← 播客、视频、采访、演讲等转录稿
 │   ├── 💡 04-meeting_notes/     ← 会议纪要、brainstorming、项目讨论记录
-│   ├── 🤖 05-ai-builders/       ← AI builders 信息批次：研究者、创始人、工程师、PM 等一线构建者的高信号动态
+│   ├── 🤖 05-ai-builders/       ← AI builders 信息批次：来自 X / Twitter、播客、博客等平台的一线构建者高信号动态
 │   │   └── YYYY-MM-DD/
 │   │       ├── digest-zh.md     ← 该批次唯一 ingest 主入口
 │   │       ├── feed-x.json      ← X / Twitter 证据层
@@ -181,7 +181,7 @@
 
 其中：
 
-- `/ai` 负责“抓取并组织一批专题资料”
+- `/ai` 负责“围绕 AI builders 抓取并组织一批专题资料”
 - `/ingest` 负责“把原始资料编译为知识”
 - `/query` 负责“在知识库上提问和综合回答”
 - `/lint` 负责“检查整个 wiki 的结构健康度”
@@ -192,7 +192,7 @@
 
 最典型的使用顺序：
 
-1. 运行 `/ai` 生成最新一批专题原始资料，或手动把资料放入 `raw/01-04/`
+1. 运行 `/ai` 生成最新一批专题原始资料，从 X / Twitter、播客、博客等平台整理一线构建者的高信号公开内容到 `raw/05-ai-builders/YYYY-MM-DD/`，或手动把资料放入 `raw/01-04/`
 2. 运行 `/ingest raw/05-ai-builders/YYYY-MM-DD/digest-zh.md`
 3. 运行 `/query <问题>` 在知识库上提问
 4. 需要时运行 `/lint` 做全局巡检

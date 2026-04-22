@@ -10,6 +10,14 @@
   - **禁止修改或删除此目录下的任何文件**。它是事实的唯一真相来源。
 - `/assets/` (媒体资产层)：
   - 存放图片、PDF和媒体。引用时使用 Obsidian 标准语法 `![[文件名称.png]]`。
+  - 默认只存放会被 `wiki/` 页面长期引用的媒体，不作为杂项下载目录。
+  - 当图片、截图或 PDF 满足以下任一条件时，应优先放入 `/assets/` 并在对应 wiki 页面中引用：
+    - 该媒体承载核心结构信息、流程图、架构图或关键证据。
+    - 该媒体比正文更适合解释某个概念或来源页。
+    - 该媒体后续大概率会被多个页面复用。
+  - 默认优先将媒体引用放在来源页（`wiki/sources/`）中；仅当某张媒体服务于长期稳定的概念或实体时，才升级到 `wiki/concepts/` 或 `wiki/entities/` 页面中复用。
+  - 不要为纯装饰性图片、头像、banner、无信息增量配图自动创建 `/assets/` 引用。
+  - 除非用户明确要求，否则不要修改 `raw/` 原文来插入媒体；媒体引用应放在 `wiki/` 编译输出层。
 - `/wiki/` (编译输出层 - You Own This)：
   - 这是你的专属工作区。你需要在此处创建、更新、提炼知识并解决矛盾。
 
@@ -64,6 +72,7 @@
 # 工作流指令说明 (Workflows / Skills)
 当被要求执行以下操作时，请遵循核心逻辑（未来可能由专用 Agent Skills 接管）：
 
+- `/ai`：围绕 AI builders 生成专题资料批次，持续搜集研究者、创始人、工程师、PM 和技术负责人等一线构建者在 X / Twitter、播客、博客等平台上的高信号公开内容，并将结果整理到 `raw/05-ai-builders/YYYY-MM-DD/`。其中 `digest-zh.md` 是该批次唯一主入口，`feed-x.json`、`feed-podcasts.json`、`feed-blogs.json` 是辅助证据层。`/ai` 只负责原始资料的抓取、筛选与组织，不直接更新 `wiki/`；如需进入知识网络，必须再执行 `/ingest raw/05-ai-builders/YYYY-MM-DD/digest-zh.md`。
 - **`/ingest` 触发兼容规则**：如果上层前端、插件或转发层没有把裸 `/ingest` 原样传入，而是将其展开为以 `# ingest 技能` 开头的一整段 ingest 规则文本，只要该消息的意图明显是在触发 ingest，就必须将其视为一次真实的 `/ingest` 执行请求，而不是仅把它当作规则说明重复确认。
 - **已处理状态判定**：执行 ingest 前，必须扫描 `wiki/sources/` 中所有来源页 frontmatter 的 `sources` 字段，建立 `raw 路径 -> 来源页` 映射。`/ingest` 依此跳过已处理文件，`/ingest <路径>` 若命中映射则进入更新模式。
 - **`/ingest status`**：这是一个只读状态观察命令，输出 `未处理`、`已处理`、`批次入口`、`可更新` 四组结果，不修改任何文件。
@@ -83,3 +92,9 @@ tags: [知识标签]
 sources:[关联的raw文件相对路径]
 last_updated: YYYY-MM-DD
 ---
+
+## 标签命名规则
+- `tags` 中的标签不得包含空格。
+- 英文标签统一使用 kebab-case，例如 `ai-builder`、`llm-wiki`、`claude-code`、`y-combinator`。
+- 中文标签保持简短自然中文，但不要包含空格。
+- 如果需要显示自然语言短语，应放在正文中，或使用双链显示别名语法 `[[PageName|Display Name]]`，不要把自然语言短语直接写进 `tags`。

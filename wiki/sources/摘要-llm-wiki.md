@@ -1,7 +1,7 @@
 ---
 title: "摘要-llm-wiki"
 type: source
-tags: [来源, 原始文件, LLM Wiki]
+tags: [来源, 原始文件, llm-wiki]
 sources:
   - raw/01-articles/llm-wiki.md
 last_updated: 2026-04-22

@@ -1,7 +1,7 @@
 ---
 title: "GarryTan"
 type: entity
-tags: [人物, AI builder, Y Combinator]
+tags: [人物, ai-builder, y-combinator]
 sources:
   - raw/05-ai-builders/2026-04-21/digest-zh.md
   - "raw/01-articles/garrytangstack Use Garry Tan's exact Claude Code setup 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA.md"
