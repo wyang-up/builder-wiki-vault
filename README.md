@@ -65,22 +65,6 @@
 - `wiki/` 负责把原始事实编译成可链接知识
 - `.claude/skills/` 负责把 `/ai`、`/ingest`、`/query`、`/lint` 这些工作流落地
 
-## 为什么这个项目值得看
-
-很多知识工具只做到“收集”，很多信息产品只做到“摘要”。
-
-这个项目想做的是更完整的一条链：
-
-1. 收集高价值原始资料
-2. 把资料整理进统一的原始资料层
-3. 再把这些原始资料编译成来源页、实体页、概念页和综合页
-4. 让这些内容最终变成一个可更新、可查询、可持续维护的本地知识库
-
-所以它不是“又一个资料收集箱”，也不是“又一个 Obsidian 模板”，而是把两件事真正接起来：
-
-- 前面是可持续进入 vault 的资料入口
-- 后面是面向长期维护的知识编译流程
-
 ## 核心功能
 
 ### 1. 多来源资料进入同一个知识系统
@@ -136,55 +120,25 @@
 
 最终目标不是堆页面，而是构建一个可穿行的知识网络。
 
-## 它融合了什么
-
-### 来自 `follow-builders`
-
-- “Follow builders, not influencers” 这条筛选哲学
-- 围绕高信号来源的 source curation 思路
-- X / Podcasts / Blogs 三类来源的批次化组织方式
-- 把连续信息流整理成可消费批次的工作流意识
-
-### 来自 `karpathy-llm-wiki-vault`
-
-- `raw/` 与 `wiki/` 的分层结构
-- 以 wiki 为中心的知识编译思路
-- `sources / entities / concepts / syntheses` 的页面分工
-- 双向链接、索引页、日志页这些知识库骨架
-
-### 这个项目自己的补充
-
-- 专题批次目录的入口约定
-- `digest-zh.md` 作为唯一 ingest 主入口
-- `feed-*.json` 只做证据层，不独立建来源页
-- `/ingest status` 的状态观察语义
-- 已处理文件的 update 模式
-- ingest 后接全局 lint 的巡检规则
-- 更贴合本地 Obsidian vault 的脚本与 skill 组合
-
 ## 工作流
 
 这个项目当前最完整的一条自动化路径是专题批次资料流：
 
-```text
-专题信息流
-  -> /ai 生成原始批次
-  -> raw/05-ai-builders/YYYY-MM-DD/
-  -> /ingest digest-zh.md
-  -> wiki/sources/ai-builders-YYYY-MM-DD.md
-  -> wiki/entities/ + wiki/concepts/
-  -> /query 消费知识
-  -> /lint 巡检知识网络
-```
+![Builder Wiki Vault Global Workflow](assets/global-workflow-diagram.svg)
 
-除此之外，文章、论文、转录稿和会议纪要也都可以直接进入 `raw/01-04/`，再通过 `/ingest` 进入同一个知识网络。
+这张图展示的是项目的全局业务逻辑：原始资料可以从 `raw/01-04/` 直接进入知识编译流程，AI builders 专题资料则先通过 `/ai` 生成批次，再交给 `/ingest` 编译进 `wiki/`。在这个过程中，`assets/` 作为媒体资产层为来源页、概念页和实体页提供图片、PDF 与附件引用，`/query` 和 `/lint` 则分别承担知识消费与全局健康巡检。
 
-其中：
+### /ai 批次生成流程
 
-- `/ai` 负责“围绕 AI builders 抓取并组织一批专题资料”
-- `/ingest` 负责“把原始资料编译为知识”
-- `/query` 负责“在知识库上提问和综合回答”
-- `/lint` 负责“检查整个 wiki 的结构健康度”
+![AI Workflow Diagram](assets/ai-workflow-diagram.svg)
+
+这张图说明 `/ai` 的职责边界：它只负责围绕 AI builders 抓取并整理高信号公开内容，把结果写入 `raw/05-ai-builders/YYYY-MM-DD/`。其中 `digest-zh.md` 是后续进入知识库的主入口，`feed-x.json`、`feed-podcasts.json`、`feed-blogs.json` 则作为辅助证据层保留原始链接、来源和时间信息。
+
+### /ingest 编译流程
+
+![Ingest Workflow Diagram](assets/ingest-workflow-diagram.svg)
+
+这张图描述 `/ingest` 如何把原始资料编译成结构化知识：先读取源文件并提炼核心主旨、实体、概念和证据，再生成或更新来源页、实体页和概念页，随后同步更新 `wiki/index.md` 与 `wiki/log.md`。对于已经处理过的资料，流程会进入 update 模式；每次 ingest 成功后，还会自动执行一次全局 `/lint` 检查知识网络健康度。
 
 ## 快速开始
 
